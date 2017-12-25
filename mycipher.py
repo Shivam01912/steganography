@@ -1,6 +1,9 @@
+import random
+
 def encrypt(text,key):
 	t=""
-	caesar_key=int(key)%127
+	random.seed(int(key))
+	caesar_key=random.randint(1,127)
 
 	for i in range(0,len(text)):
 		ch=127-(ord(text[i])-1)+caesar_key
@@ -14,7 +17,8 @@ def encrypt(text,key):
 
 def decrypt(text,key):
 	t=""
-	caesar_key=int(key)%127
+	random.seed(int(key))
+	caesar_key=random.randint(1,127)
 
 	for i in range(0,len(text)):
 		ch=(ord(text[i])-caesar_key)
